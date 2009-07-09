@@ -1,0 +1,15 @@
+<h2>Newsletter</h2>
+<div class="newsletter-form" id="subscribe_form">
+
+<div class="ugc"><p><span class="highlight">Jason Bruges Studio</span> is launching a quarterly newsletter. Sign up to receive details of our latest work, products, news and R&amp;D.</p></div>
+
+<% form_for @subscriber, :method => :post, :html => {:class => ('default' if params[:subscriber].nil?)} do |f| %>
+  <%= f.error_messages %>
+  <p><%= f.label :name %>
+  <%= f.text_field :name, :value=>"Name" %></p>
+  <p><%= f.label :email %>
+  <%= f.text_field :email, :value=>"Email" %></p>
+
+  <p><%= f.submit 'Send' %></p>
+<% end %>
+</div>

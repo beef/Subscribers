@@ -1,0 +1,36 @@
+<h1>Listing Subscribers</h1>  
+
+<ul class="choices">
+  <li><%= link_to_csv %></li>
+</ul>
+
+<%= will_paginate %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Subscribed on</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<% for subscriber in @subscribers %>
+    <tr <%= alternate_class -%> id="subscriber:<%= subscriber.id %>">
+	  <td><%= mail_to subscriber.email %></td>
+      <td class="date"><%= subscriber.created_at.to_formatted_s(:short) %></td>
+      <td><%= link_to 'Destroy', admin_subscriber_path(subscriber), :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %></td>
+    </tr>  
+<% end %> 
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Email</th>
+      <th>Subscribed on</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </tfoot>
+</table>
+
+<%= will_paginate %>

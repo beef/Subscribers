@@ -1,0 +1,4 @@
+csv << [ 'name', 'email' , 'created_at' ]
+for subscriber in @subscribers
+csv << [subscriber.name,subscriber.email,subscriber.created_at]
+end

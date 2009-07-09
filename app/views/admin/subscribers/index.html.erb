@@ -1,7 +1,7 @@
 <h1>Listing Subscribers</h1>  
 
 <ul class="choices">
-  <li><%= link_to_csv %></li>
+  <li><%= link_to 'Download CSV', admin_subscribers_path(:csv) %></li>
 </ul>
 
 <%= will_paginate %>
@@ -9,16 +9,18 @@
 <table>
   <thead>
     <tr>
-      <th>Email</th>
-      <th>Subscribed on</th>
-      <th colspan="2">Actions</th>
+      <%= sortable_table_header :name => "Email",  :sort => "email" %>
+      <%= sortable_table_header :name => "Name",  :sort => "name" %>
+      <%= sortable_table_header :name => "Subscribed",  :sort => "created_at" %>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
 
 <% for subscriber in @subscribers %>
-    <tr <%= alternate_class -%> id="subscriber:<%= subscriber.id %>">
-	  <td><%= mail_to subscriber.email %></td>
+    <tr id="subscriber:<%= subscriber.id %>">
+      <td><%= mail_to subscriber.email %></td>
+      <td><%=h subscriber.name %></td>
       <td class="date"><%= subscriber.created_at.to_formatted_s(:short) %></td>
       <td><%= link_to 'Destroy', admin_subscriber_path(subscriber), :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %></td>
     </tr>  
@@ -26,9 +28,10 @@
   </tbody>
   <tfoot>
     <tr>
-      <th>Email</th>
-      <th>Subscribed on</th>
-      <th colspan="2">Actions</th>
+      <%= sortable_table_header :name => "Email",  :sort => "position" %>
+      <%= sortable_table_header :name => "Name",  :sort => "title" %>
+      <%= sortable_table_header :name => "Subscribed",  :sort => "created_at" %>
+      <th>Actions</th>
     </tr>
   </tfoot>
 </table>

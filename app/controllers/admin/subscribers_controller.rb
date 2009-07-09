@@ -1,7 +1,9 @@
 class Admin::SubscribersController < Admin::BaseController
+  sortable_attributes :name, :email, :created_at
+
   def index
     
-    @subscribers = Subscriber.paginate :page => params[:page], :order => 'created_at DESC'
+    @subscribers = Subscriber.paginate :page => params[:page], :order => sort_order
     
     respond_to do |format|
       format.html # index.html.erb

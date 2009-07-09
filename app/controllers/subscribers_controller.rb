@@ -1,4 +1,4 @@
-class SlidesController < ApplicationController
+class SubscribersController < ApplicationController
 
   def create
     @subscriber = Subscriber.new(params[:subscriber])

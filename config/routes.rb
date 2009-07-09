@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.namespace(:admin) do |admin|
-    admin.resources :subscribers, :member => { :move_up => :get, :move_down => :get }
+    admin.resources :subscribers, :only => [:index, :destroy]
   end
-  map.resources :subscribers, :only => :index
+  map.resources :subscribers, :only => :create
 end

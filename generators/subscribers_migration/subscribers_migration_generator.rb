@@ -1,4 +1,4 @@
-class subscribersMigrationGenerator < Rails::Generator::Base
+class SubscribersMigrationGenerator < Rails::Generator::Base
 
   def manifest
     record do |m|

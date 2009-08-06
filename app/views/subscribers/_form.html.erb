@@ -1,11 +1,11 @@
 <h2>Subscribe to our Newsletter</h2>
 <div class="newsletter-form" id="subscribe_form">
-<% form_for @subscriber, :method => :post, :html => {:class => ('default' if params[:subscriber].nil?)} do |f| %>
+<% form_for @subscriber, :method => :post do |f| %>
   <%= f.error_messages %>
   <p><%= f.label :name %>
-  <%= f.text_field :name, :value=>"Name" %></p>
+  <%= f.text_field :name %></p>
   <p><%= f.label :email %>
-  <%= f.text_field :email, :value=>"Email" %></p>
+  <%= f.text_field :email %></p>
 
   <p><%= f.submit 'Send' %></p>
 <% end %>

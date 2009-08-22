@@ -1,5 +1,4 @@
 <h2>Subscribe to our Newsletter</h2>
-<div class="newsletter-form" id="subscribe_form">
 <% form_for @subscriber, :method => :post do |f| %>
   <%= f.error_messages %>
   <p><%= f.label :name %>
@@ -9,4 +8,3 @@
 
   <p><%= f.submit 'Send' %></p>
 <% end %>
-</div>

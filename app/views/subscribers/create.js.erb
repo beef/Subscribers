@@ -1,0 +1,10 @@
+<%- if @subscriber.valid? -%>
+$('#new_subscriber').prepend('<div class="success">Thank You for subscribing</div>');
+$('#new_subscriber #flash').hide();
+$('#new_subscriber #flash').slideDown();
+<%- else -%>
+var errors = "<%= escape_javascript(error_messages_for :subscriber) %>";
+$('#new_subscriber').prepend(errors);
+$('#errorExplanation').hide();
+$('#new_subscriber #errorExplanation').slideDown();
+<%- end -%>

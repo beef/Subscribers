@@ -9,9 +9,11 @@ class SubscribersController < ApplicationController
           flash[:notice] = 'Thank you for subscribing.'
           redirect_to root_path
         end
+        format.js
         format.json { render :json => @subscriber }
       else
         format.html
+        format.js
         format.json { render :json => @subscriber.errors.full_messages, :status => :unprocessable_entity }
       end
     end

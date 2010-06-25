@@ -1,7 +1,7 @@
 <h1>Listing Subscribers</h1>  
 
 <ul class="choices">
-  <li><%= link_to 'Download CSV', admin_subscribers_path(:csv) %></li>
+  <li><%= link_to 'Download CSV', admin_subscribers_path(:csv), :title => "Download these subscribers as a comma separated list of values" %></li>
 </ul>
 
 <%= will_paginate %>
@@ -22,7 +22,7 @@
       <td><%= mail_to subscriber.email %></td>
       <td><%=h subscriber.name %></td>
       <td class="date"><%= subscriber.created_at.to_formatted_s(:short) %></td>
-      <td><%= link_to 'Destroy', admin_subscriber_path(subscriber), :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %></td>
+      <td><%= link_to 'Destroy', admin_subscriber_path(subscriber), :confirm => 'Are you sure?', :method => :delete, :class => 'delete', :title => "Delete this subscriber" %></td>
     </tr>  
 <% end %> 
   </tbody>
